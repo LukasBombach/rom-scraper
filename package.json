@@ -1,0 +1,54 @@
+{
+  "name": "rom-scraper",
+  "version": "0.0.1",
+  "description": "Rom Metadata Scraper — WIP",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack -d --watch",
+    "dist": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukasBombach/rom-scraper.git"
+  },
+  "keywords": [
+    "rom",
+    "gaming",
+    "retro"
+  ],
+  "author": "Lukas Bombach",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-stage-0": "*",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jsx-a11y": "*",
+    "eslint-plugin-react": "*",
+    "webpack": "*",
+    "webpack-node-externals": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/LukasBombach/rom-scraper/issues"
+  },
+  "homepage": "https://github.com/LukasBombach/rom-scraper#readme",
+  "babel": {
+    "presets": [
+      "stage-0",
+      "es2015"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.8.0",
+    "node-fetch": "^1.5.2",
+    "query-string": "^4.1.0",
+    "xml2json": "^0.9.1"
+  }
+}
