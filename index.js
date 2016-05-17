@@ -83,6 +83,7 @@
 	var platform = _scraper2.default.PLATFORMS.SNES;
 	
 	_thegamesdb2.default.getGame({ name: name, platform: platform }).then(function (game) {
+	  // eslint-disable no-console
 	  console.log(game);
 	});
 
@@ -237,8 +238,8 @@
 	      var name = _ref.name;
 	      var platform = _ref.platform;
 	
-	      platform = TheGamesDb._platform(platform);
-	      var request = TheGamesDb._api('GetGamesList', { name: name, platform: platform });
+	      var _platform = TheGamesDb._platform(platform);
+	      var request = TheGamesDb._api('GetGamesList', { name: name, platform: _platform });
 	      return request.then(TheGamesDb._body);
 	    }
 	
