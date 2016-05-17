@@ -22,7 +22,7 @@ export default class TheGamesDb extends Scraper {
    */
   static _platform(platform) {
     const map = {
-      [Scraper.PLATFORMS.SNES] : 'Super Nintendo (SNES)'
+      [Scraper.PLATFORMS.SNES]: 'Super Nintendo (SNES)',
     };
     return map[platform];
   }
@@ -60,8 +60,8 @@ export default class TheGamesDb extends Scraper {
    * @returns {Promise.<Array>}
    */
   static search({ name, platform }) {
-    platform = TheGamesDb._platform(platform);
-    const request = TheGamesDb._api('GetGamesList', { name, platform });
+    const _platform = TheGamesDb._platform(platform);
+    const request = TheGamesDb._api('GetGamesList', { name, platform: _platform });
     return request.then(TheGamesDb._body);
   }
 
