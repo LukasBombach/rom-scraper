@@ -5,6 +5,5 @@ const name = 'Secret of Mana';
 const platform = Scraper.PLATFORMS.SNES;
 
 TheGamesDb.getGame({ name, platform }).then(game => {
-  // eslint-disable no-console
-  console.log(game);
+  console.log(game); // eslint-disable-line no-console
 });
