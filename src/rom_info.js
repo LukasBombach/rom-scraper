@@ -1,8 +1,17 @@
 export default class RomInfo {
 
   static get schema() {
-    const resourceSchema = {
-
+    const imageSchema = {
+      type: /(boxart-front|boxart-back|logo|banner|marquee|screenshot|fanart)/i,
+      original: 'string',
+      width: { type: 'number', req: false },
+      height: { type: 'number', req: false },
+    };
+    const videoSchema = {
+      type: /(attract|ingame|intro)/i,
+      original: 'string',
+      width: { type: 'number', req: false },
+      height: { type: 'number', req: false },
     };
     return {
       title: 'string',
@@ -15,9 +24,9 @@ export default class RomInfo {
       coop: { type: 'boolean', req: false },
       publisher: { type: 'string', req: false },
       developer: { type: 'string', req: false },
-      images: { type: [resourceSchema], req: false },
-      videos: { type: [resourceSchema], req: false },
-    }
+      images: { type: [imageSchema], req: false },
+      videos: { type: [videoSchema], req: false },
+    };
   }
 
   constructor(data) {
