@@ -37,6 +37,7 @@ export default class TheGamesDb extends Scraper {
   static _api(method, params = {}) {
     const options = { method: 'GET' };
     const url = `${TheGamesDb._BASE_URL}${method}.php?${queryString.stringify(params)}`;
+    console.info('fetching', url);
     return fetch(url, options);
   }
 
