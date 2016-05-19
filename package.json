@@ -44,7 +44,12 @@
   },
   "eslintConfig": {
     "extends": "airbnb",
-    "no-underscore-dangle": ["allow", { "allow": [] }]
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": []
+      }
+    ]
   },
   "dependencies": {
     "babel-polyfill": "^6.8.0",

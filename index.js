@@ -83,7 +83,7 @@
 	var platform = _scraper2.default.PLATFORMS.SNES;
 	
 	_thegamesdb2.default.getGame({ name: name, platform: platform }).then(function (game) {
-	  console.log(game);
+	  console.log(game); // eslint-disable-line no-console
 	});
 
 /***/ },
@@ -137,15 +137,15 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _xml2json = __webpack_require__(/*! xml2json */ 6);
+	var _xml2json = __webpack_require__(/*! xml2json */ 5);
 	
 	var _xml2json2 = _interopRequireDefault(_xml2json);
 	
-	var _nodeFetch = __webpack_require__(/*! node-fetch */ 7);
+	var _nodeFetch = __webpack_require__(/*! node-fetch */ 6);
 	
 	var _nodeFetch2 = _interopRequireDefault(_nodeFetch);
 	
-	var _queryString = __webpack_require__(/*! query-string */ 8);
+	var _queryString = __webpack_require__(/*! query-string */ 7);
 	
 	var _queryString2 = _interopRequireDefault(_queryString);
 	
@@ -202,6 +202,7 @@
 	
 	      var options = { method: 'GET' };
 	      var url = '' + TheGamesDb._BASE_URL + method + '.php?' + _queryString2.default.stringify(params);
+	      console.info('fetching', url);
 	      return (0, _nodeFetch2.default)(url, options);
 	    }
 	
@@ -237,8 +238,8 @@
 	      var name = _ref.name;
 	      var platform = _ref.platform;
 	
-	      platform = TheGamesDb._platform(platform);
-	      var request = TheGamesDb._api('GetGamesList', { name: name, platform: platform });
+	      var _platform = TheGamesDb._platform(platform);
+	      var request = TheGamesDb._api('GetGamesList', { name: name, platform: _platform });
 	      return request.then(TheGamesDb._body);
 	    }
 	
@@ -279,8 +280,7 @@
 	exports.default = TheGamesDb;
 
 /***/ },
-/* 5 */,
-/* 6 */
+/* 5 */
 /*!***************************!*\
   !*** external "xml2json" ***!
   \***************************/
@@ -289,7 +289,7 @@
 	module.exports = require("xml2json");
 
 /***/ },
-/* 7 */
+/* 6 */
 /*!*****************************!*\
   !*** external "node-fetch" ***!
   \*****************************/
@@ -298,7 +298,7 @@
 	module.exports = require("node-fetch");
 
 /***/ },
-/* 8 */
+/* 7 */
 /*!*******************************!*\
   !*** external "query-string" ***!
   \*******************************/
