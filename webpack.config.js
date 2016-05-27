@@ -8,7 +8,10 @@ module.exports = {
   },
   output: {
     path: '.',
-    filename: '[name].js'
+    filename: '[name].js',
+    library: 'rom-scraper',
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   devtool: 'source-map',
   module: {

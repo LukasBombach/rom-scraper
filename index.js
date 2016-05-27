@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("babel-polyfill"), require("xml2json"), require("node-fetch"), require("query-string"));
+	else if(typeof define === 'function' && define.amd)
+		define("rom-scraper", ["babel-polyfill", "xml2json", "node-fetch", "query-string"], factory);
+	else if(typeof exports === 'object')
+		exports["rom-scraper"] = factory(require("babel-polyfill"), require("xml2json"), require("node-fetch"), require("query-string"));
+	else
+		root["rom-scraper"] = factory(root["babel-polyfill"], root["xml2json"], root["node-fetch"], root["query-string"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_6__, __WEBPACK_EXTERNAL_MODULE_7__, __WEBPACK_EXTERNAL_MODULE_8__) {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -564,5 +574,7 @@
 	module.exports = exports["default"];
 
 /***/ }
-/******/ ]);
+/******/ ])
+});
+;
 //# sourceMappingURL=index.js.map
