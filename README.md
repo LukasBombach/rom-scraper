@@ -26,7 +26,7 @@ TheGamesDb
 
 `TheGamesDb.search` and `TheGamesDb.getGame` will take 2 _optional_ parameters,
 the name of the game and and the platform's name. The `name` can be anything you
-search for, the platform must be any of the
+search for, the `platform` must be any of the
 [names listed here](http://wiki.thegamesdb.net/index.php/GetPlatformsList#Example_Response:).
 
 Both functions will return a `Promise`. The data the example calls above return
