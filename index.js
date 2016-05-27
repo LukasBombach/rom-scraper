@@ -445,7 +445,9 @@
 	
 	      return TheGamesDb.search({ name: name, platform: platform }).then(function (games) {
 	        return TheGamesDb._api('GetGame', { id: games[0].id });
-	      }).then(TheGamesDb._body).then(TheGamesDb._rom);
+	      }).then(TheGamesDb._body).then(TheGamesDb._rom).then(function (rom) {
+	        return rom.getData();
+	      });
 	    }
 	  }, {
 	    key: '_BASE_URL',

@@ -181,7 +181,8 @@ export default class TheGamesDb extends Scraper {
     return TheGamesDb.search({ name, platform })
         .then(games => TheGamesDb._api('GetGame', { id: games[0].id }))
         .then(TheGamesDb._body)
-        .then(TheGamesDb._rom);
+        .then(TheGamesDb._rom)
+        .then(rom => rom.getData());
   }
 
 }

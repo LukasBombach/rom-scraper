@@ -85,13 +85,13 @@
 	var name = 'Secret of Mana';
 	var platform = _scraper2.default.PLATFORMS.SNES;
 	
-	_index.TheGamesDb.getGame({ name: name, platform: platform }).then(function (rom) {
-	  console.log(rom.getData()); // eslint-disable-line no-console
+	_index.TheGamesDb.getGame({ name: name, platform: platform }).then(function (data) {
+	  console.log(JSON.stringify(data)); // eslint-disable-line no-console
 	});
 	
-	// TheGamesDb.search({ name }).then(results => {
-	//   console.log(results); // eslint-disable-line no-console
-	// });
+	_index.TheGamesDb.search({ name: name, platform: platform }).then(function (results) {
+	  console.log(JSON.stringify(results)); // eslint-disable-line no-console
+	});
 
 /***/ },
 /* 3 */
@@ -477,7 +477,9 @@
 	
 	      return TheGamesDb.search({ name: name, platform: platform }).then(function (games) {
 	        return TheGamesDb._api('GetGame', { id: games[0].id });
-	      }).then(TheGamesDb._body).then(TheGamesDb._rom);
+	      }).then(TheGamesDb._body).then(TheGamesDb._rom).then(function (rom) {
+	        return rom.getData();
+	      });
 	    }
 	  }, {
 	    key: '_BASE_URL',
