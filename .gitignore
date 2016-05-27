@@ -1,5 +1,6 @@
 .DS_STORE
+.npm-debug.log
 .idea
+.tags*
 node_modules
 *.js.map
-.tags*
