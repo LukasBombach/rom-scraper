@@ -4,8 +4,8 @@
   "description": "Rom Metadata Scraper — WIP",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -d --watch",
-    "dist": "webpack",
+    "build": "WEBPACK_ENV=build webpack",
+    "dev": "WEBPACK_ENV=dev webpack --progress --colors --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +23,7 @@
   "devDependencies": {
     "babel-core": "*",
     "babel-loader": "*",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "*",
     "babel-preset-stage-0": "*",
     "babel-preset-stage-1": "^6.5.0",
@@ -42,7 +43,8 @@
     "presets": [
       "stage-1",
       "es2015"
-    ]
+    ],
+    "plugins": ["babel-plugin-add-module-exports"]
   },
   "eslintConfig": {
     "extends": "airbnb",

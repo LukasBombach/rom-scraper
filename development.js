@@ -42,38 +42,29 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!*************************!*\
-  !*** multi development ***!
-  \*************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! babel-polyfill */1);
-	module.exports = __webpack_require__(/*! ./src/development.js */2);
+	__webpack_require__(1);
+	module.exports = __webpack_require__(2);
 
 
 /***/ },
 /* 1 */
-/*!*********************************!*\
-  !*** external "babel-polyfill" ***!
-  \*********************************/
 /***/ function(module, exports) {
 
 	module.exports = require("babel-polyfill");
 
 /***/ },
 /* 2 */
-/*!****************************!*\
-  !*** ./src/development.js ***!
-  \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _scraper = __webpack_require__(/*! ./scraper */ 3);
+	var _scraper = __webpack_require__(3);
 	
 	var _scraper2 = _interopRequireDefault(_scraper);
 	
-	var _index = __webpack_require__(/*! ./index */ 4);
+	var _index = __webpack_require__(4);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -95,9 +86,6 @@
 
 /***/ },
 /* 3 */
-/*!************************!*\
-  !*** ./src/scraper.js ***!
-  \************************/
 /***/ function(module, exports) {
 
 	'use strict';
@@ -171,12 +159,10 @@
 	}();
 	
 	exports.default = Scraper;
+	module.exports = exports['default'];
 
 /***/ },
 /* 4 */
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -186,7 +172,7 @@
 	});
 	exports.TheGamesDb = undefined;
 	
-	var _thegamesdb = __webpack_require__(/*! ./scrapers/thegamesdb */ 5);
+	var _thegamesdb = __webpack_require__(5);
 	
 	var _thegamesdb2 = _interopRequireDefault(_thegamesdb);
 	
@@ -198,9 +184,6 @@
 
 /***/ },
 /* 5 */
-/*!************************************!*\
-  !*** ./src/scrapers/thegamesdb.js ***!
-  \************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -211,23 +194,23 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _xml2json = __webpack_require__(/*! xml2json */ 6);
+	var _xml2json = __webpack_require__(6);
 	
 	var _xml2json2 = _interopRequireDefault(_xml2json);
 	
-	var _nodeFetch = __webpack_require__(/*! node-fetch */ 7);
+	var _nodeFetch = __webpack_require__(7);
 	
 	var _nodeFetch2 = _interopRequireDefault(_nodeFetch);
 	
-	var _queryString = __webpack_require__(/*! query-string */ 8);
+	var _queryString = __webpack_require__(8);
 	
 	var _queryString2 = _interopRequireDefault(_queryString);
 	
-	var _scraper = __webpack_require__(/*! ../scraper */ 3);
+	var _scraper = __webpack_require__(3);
 	
 	var _scraper2 = _interopRequireDefault(_scraper);
 	
-	var _rom2 = __webpack_require__(/*! ../rom */ 9);
+	var _rom2 = __webpack_require__(9);
 	
 	var _rom3 = _interopRequireDefault(_rom2);
 	
@@ -504,39 +487,28 @@
 	}(_scraper2.default);
 	
 	exports.default = TheGamesDb;
+	module.exports = exports['default'];
 
 /***/ },
 /* 6 */
-/*!***************************!*\
-  !*** external "xml2json" ***!
-  \***************************/
 /***/ function(module, exports) {
 
 	module.exports = require("xml2json");
 
 /***/ },
 /* 7 */
-/*!*****************************!*\
-  !*** external "node-fetch" ***!
-  \*****************************/
 /***/ function(module, exports) {
 
 	module.exports = require("node-fetch");
 
 /***/ },
 /* 8 */
-/*!*******************************!*\
-  !*** external "query-string" ***!
-  \*******************************/
 /***/ function(module, exports) {
 
 	module.exports = require("query-string");
 
 /***/ },
 /* 9 */
-/*!********************!*\
-  !*** ./src/rom.js ***!
-  \********************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -618,6 +590,7 @@
 	}();
 	
 	exports.default = Rom;
+	module.exports = exports["default"];
 
 /***/ }
 /******/ ]);
