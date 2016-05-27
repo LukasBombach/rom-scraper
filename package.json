@@ -1,6 +1,6 @@
 {
   "name": "rom-scraper",
-  "version": "0.0.2",
+  "version": "0.0.2a",
   "description": "Rom Metadata Scraper — WIP",
   "main": "index.js",
   "scripts": {
