@@ -24,6 +24,7 @@
     "babel-loader": "*",
     "babel-preset-es2015": "*",
     "babel-preset-stage-0": "*",
+    "babel-preset-stage-1": "^6.5.0",
     "eslint": "*",
     "eslint-config-airbnb": "*",
     "eslint-plugin-import": "*",
@@ -38,7 +39,7 @@
   "homepage": "https://github.com/LukasBombach/rom-scraper#readme",
   "babel": {
     "presets": [
-      "stage-0",
+      "stage-1",
       "es2015"
     ]
   },

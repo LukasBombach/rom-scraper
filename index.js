@@ -79,12 +79,21 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	/**
+	 *  This file is for development purposes only right now.
+	 *  todo expose classes etc for AMD, CommonJs etc. here
+	 */
+	
 	var name = 'Secret of Mana';
 	var platform = _scraper2.default.PLATFORMS.SNES;
 	
 	_thegamesdb2.default.getGame({ name: name, platform: platform }).then(function (rom) {
-	  console.log(rom); // eslint-disable-line no-console
+	  console.log(rom.getData()); // eslint-disable-line no-console
 	});
+	
+	// TheGamesDb.search({ name }).then(results => {
+	//   console.log(results); // eslint-disable-line no-console
+	// });
 
 /***/ },
 /* 3 */
@@ -196,7 +205,7 @@
 	
 	var _scraper2 = _interopRequireDefault(_scraper);
 	
-	var _rom2 = __webpack_require__(/*! ../rom */ 9);
+	var _rom2 = __webpack_require__(/*! ../rom */ 8);
 	
 	var _rom3 = _interopRequireDefault(_rom2);
 	
@@ -372,7 +381,7 @@
 	     */
 	    value: function _platform(platform) {
 	      var map = _defineProperty({}, _scraper2.default.PLATFORMS.SNES, 'Super Nintendo (SNES)');
-	      return map[platform];
+	      return map[platform] || platform;
 	    }
 	
 	    /**
@@ -390,7 +399,7 @@
 	
 	      var options = { method: 'GET' };
 	      var url = '' + TheGamesDb._BASE_URL + method + '.php?' + _queryString2.default.stringify(params);
-	      console.info('fetching', url);
+	      // console.info('fetching', url);
 	      return (0, _nodeFetch2.default)(url, options);
 	    }
 	
@@ -500,8 +509,7 @@
 	module.exports = require("query-string");
 
 /***/ },
-/* 8 */,
-/* 9 */
+/* 8 */
 /*!********************!*\
   !*** ./src/rom.js ***!
   \********************/
