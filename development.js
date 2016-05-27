@@ -42,13 +42,13 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!*******************!*\
-  !*** multi index ***!
-  \*******************/
+/*!*************************!*\
+  !*** multi development ***!
+  \*************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! babel-polyfill */1);
-	module.exports = __webpack_require__(/*! ./src/index.js */4);
+	module.exports = __webpack_require__(/*! ./src/development.js */2);
 
 
 /***/ },
@@ -61,7 +61,39 @@
 	module.exports = require("babel-polyfill");
 
 /***/ },
-/* 2 */,
+/* 2 */
+/*!****************************!*\
+  !*** ./src/development.js ***!
+  \****************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _scraper = __webpack_require__(/*! ./scraper */ 3);
+	
+	var _scraper2 = _interopRequireDefault(_scraper);
+	
+	var _index = __webpack_require__(/*! ./index */ 4);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	/**
+	 *  This file is for development purposes only right now.
+	 */
+	
+	
+	var name = 'Secret of Mana';
+	var platform = _scraper2.default.PLATFORMS.SNES;
+	
+	_index.TheGamesDb.getGame({ name: name, platform: platform }).then(function (rom) {
+	  console.log(rom.getData()); // eslint-disable-line no-console
+	});
+	
+	// TheGamesDb.search({ name }).then(results => {
+	//   console.log(results); // eslint-disable-line no-console
+	// });
+
+/***/ },
 /* 3 */
 /*!************************!*\
   !*** ./src/scraper.js ***!
@@ -587,4 +619,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=development.js.map

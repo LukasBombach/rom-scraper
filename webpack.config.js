@@ -3,11 +3,12 @@ const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   entry: {
-    index: ['babel-polyfill', './src/index.js']
+    index: ['babel-polyfill', './src/index.js'],
+    development: ['babel-polyfill', './src/development.js']
   },
   output: {
     path: '.',
-    filename: 'index.js'
+    filename: '[name].js'
   },
   devtool: 'source-map',
   module: {
