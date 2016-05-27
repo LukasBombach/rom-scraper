@@ -1,5 +1,5 @@
 # rom-scraper
-Rom Metadata Scraper
+Rom Metadata Scraper, currently scraping The Games DB.
 
 This Project is WIP. If you are on npmjs.com check out this project on
 https://github.com/LukasBombach/rom-scraper for the latest version. By now you can
