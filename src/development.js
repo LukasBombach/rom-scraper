@@ -11,6 +11,6 @@ TheGamesDb.getGame({ name, platform }).then(data => {
   console.log(JSON.stringify(data)); // eslint-disable-line no-console
 });
 
-TheGamesDb.search({ name, platform }).then(results => {
-  console.log(JSON.stringify(results)); // eslint-disable-line no-console
-});
+// TheGamesDb.search({ name, platform }).then(results => {
+//   console.log(JSON.stringify(results)); // eslint-disable-line no-console
+// });

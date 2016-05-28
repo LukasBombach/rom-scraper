@@ -7,7 +7,7 @@ module.exports = {
     development: ['babel-polyfill', './src/development.js']
   },
   output: {
-    path: '.',
+    path: './lib/',
     filename: '[name].js',
     library: 'rom-scraper',
     libraryTarget: 'umd',

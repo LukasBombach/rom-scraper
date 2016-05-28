@@ -1,8 +1,10 @@
-import xml2json from 'xml2json';
+import xml2js from 'xml2js';
 import fetch from 'node-fetch';
 import queryString from 'query-string';
 import Scraper from '../scraper';
 import Rom from '../rom';
+
+const parser = new xml2js.Parser({ explicitArray: false });
 
 export default class TheGamesDb extends Scraper {
 
@@ -53,10 +55,10 @@ export default class TheGamesDb extends Scraper {
    */
   static _romInfoImage(images) {
     const _images = Array.isArray(images) ? images : [images];
-    return _images.map(({ width, height, $t }) => ({
+    return _images.map(({ $: { width, height }, _ }) => ({
       width: parseInt(width, 10),
       height: parseInt(height, 10),
-      url: TheGamesDb._romInfoImageUrl($t),
+      url: TheGamesDb._romInfoImageUrl(_),
     }));
   }
 
@@ -68,10 +70,10 @@ export default class TheGamesDb extends Scraper {
    */
   static _romInfoImageOrig(images) {
     const _images = Array.isArray(images) ? images : [images];
-    return _images.map(({ original: { width, height, $t } }) => ({
+    return _images.map(({ original: { $: { width, height }, _ } }) => ({
       width: parseInt(width, 10),
       height: parseInt(height, 10),
-      url: TheGamesDb._romInfoImageUrl($t),
+      url: TheGamesDb._romInfoImageUrl(_),
     }));
   }
 
@@ -82,12 +84,12 @@ export default class TheGamesDb extends Scraper {
    * @private
    */
   static _romInfoBoxArt({ boxart }) {
-    const boxArt = Array.isArray(boxart) ? boxart : [boxart];
-    return boxArt.map(({ width, height, side, $t }) => ({
+    const _boxart = Array.isArray(boxart) ? boxart : [boxart];
+    return _boxart.map(({ $: { width, height }, _, side }) => ({
       width: parseInt(width, 10),
       height: parseInt(height, 10),
       side,
-      url: TheGamesDb._romInfoImageUrl($t),
+      url: TheGamesDb._romInfoImageUrl(_),
     }));
   }
 
@@ -154,9 +156,23 @@ export default class TheGamesDb extends Scraper {
    */
   static _body(res) {
     return res.text()
-        .then(xml => xml2json.toJson(xml))
-        .then(jsonString => JSON.parse(jsonString))
+        // .then(xml => ltx.parse(xml))
+        // .then(xml => xml2json.toJson(xml))
+        // .then(jsonString => JSON.parse(jsonString))
+        .then(TheGamesDb._parseBody)
         .then(json => json.Data.Game);
+  }
+
+  /**
+   *
+   * @param {string} xml
+   * @returns {Promise}
+   * @private
+   */
+  static _parseBody(xml) {
+    return new Promise((resolve, reject) => parser.parseString(xml, (err, res) => {
+      err ? reject(err) : resolve(res);
+    }));
   }
 
   /**

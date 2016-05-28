@@ -2,10 +2,10 @@
   "name": "rom-scraper",
   "version": "0.0.2a",
   "description": "Rom Metadata Scraper — WIP",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "WEBPACK_ENV=build webpack",
-    "dev": "WEBPACK_ENV=dev webpack --progress --colors --watch",
+    "build": "webpack --mode=build",
+    "dev": "webpack --progress --colors --watch --mode=dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -41,10 +41,11 @@
   "homepage": "https://github.com/LukasBombach/rom-scraper#readme",
   "babel": {
     "presets": [
-      "stage-1",
       "es2015"
     ],
-    "plugins": ["babel-plugin-add-module-exports"]
+    "plugins": [
+      "babel-plugin-add-module-exports"
+    ]
   },
   "eslintConfig": {
     "extends": "airbnb",
@@ -57,6 +58,6 @@
     "babel-polyfill": "^6.8.0",
     "node-fetch": "^1.5.2",
     "query-string": "^4.1.0",
-    "xml2json": "^0.9.1"
+    "xml2js": "^0.4.16"
   }
 }
