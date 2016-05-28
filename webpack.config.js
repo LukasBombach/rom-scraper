@@ -1,24 +1,50 @@
-const webpack = require('webpack');
-const nodeExternals = require('webpack-node-externals');
+var webpack = require('webpack');
+var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+var path = require('path');
+var env = require('yargs').argv.mode;
+var nodeExternals = require('webpack-node-externals');
 
-module.exports = {
-  entry: {
-    index: ['babel-polyfill', './src/index.js'],
-    development: ['babel-polyfill', './src/development.js']
-  },
+var libraryName = 'rom-scraper';
+
+var plugins = [], outputFile;
+
+if (env === 'build') {
+  plugins.push(new UglifyJsPlugin({ minimize: true }));
+  outputFile = libraryName + '.min.js';
+} else {
+  outputFile = libraryName + '.js';
+}
+
+var config = {
+  entry: __dirname + '/src/index.js',
+  devtool: 'source-map',
   output: {
-    path: '.',
-    filename: '[name].js',
-    library: 'rom-scraper',
+    path: __dirname + '/lib',
+    filename: outputFile,
+    library: libraryName,
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
-  devtool: 'source-map',
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ }
+      {
+        test: /(\.jsx|\.js)$/,
+        loader: 'babel',
+        exclude: /(node_modules|bower_components)/
+      }/*,
+      {
+        test: /(\.jsx|\.js)$/,
+        loader: "eslint-loader",
+        exclude: /node_modules/
+      }*/
     ]
   },
-  target: 'node',
-  externals: [nodeExternals()]
+  resolve: {
+    root: path.resolve('./src'),
+    extensions: ['', '.js']
+  },
+  plugins: plugins,
+  "externals": [nodeExternals()]
 };
+
+module.exports = config;
